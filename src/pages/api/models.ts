@@ -6,7 +6,7 @@ export default async function modelsByManufacturerId(
 ) {
   const { manufacturerId } = req.query;
   const response = await fetch(
-    `https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMakeId/${manufacturerId}?format=json`
+    `${process.env.NEXT_PUBLIC_API_URL}/api/vehicles/GetModelsForMakeId/${manufacturerId}?format=json`
   );
   const data = await response.json();
   const models = data.Results;

@@ -1,21 +1,18 @@
+import {
+  Box,
+  Heading,
+  Table,
+  Tbody,
+  Td,
+  Text,
+  Th,
+  Thead,
+  Tr,
+} from "@chakra-ui/react";
 import { GetServerSideProps } from "next";
 import Head from "next/head";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
 import { Manufacturer } from "../types/manufacturer";
-import {
-  Box,
-  Table,
-  Thead,
-  Tbody,
-  Tr,
-  Th,
-  Td,
-  Link,
-  Button,
-  Heading,
-  Text,
-} from "@chakra-ui/react";
 
 interface Props {
   manufacturer: Manufacturer;
