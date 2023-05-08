@@ -26,7 +26,7 @@ export default function ManufacturerDetail({ manufacturer }: Props) {
 
   useEffect(() => {
     fetch(
-      `http://localhost:3000/api/models?manufacturerId=${manufacturer.Mfr_ID}`
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/models?manufacturerId=${manufacturer.Mfr_ID}`
     )
       .then((response) => response.json())
       .then((data) => setModels(data))
@@ -94,7 +94,7 @@ export default function ManufacturerDetail({ manufacturer }: Props) {
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const response = await fetch(
-    `http://localhost:3000/api/manufacturers/${params?.id}`
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/manufacturers/${params?.id}`
   );
   const manufacturer = await response.json();
 

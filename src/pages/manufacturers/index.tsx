@@ -3,6 +3,7 @@ import Head from "next/head";
 import { Manufacturer } from "../types/manufacturer";
 import ManufacturerTable from "../components/ManufacturerTable";
 import { Center, Container, Flex, Heading } from "@chakra-ui/react";
+import { GetServerSidePropsContext } from "next";
 
 interface Props {
   manufacturers: Manufacturer[];
@@ -30,8 +31,11 @@ export default function Manufacturers({ manufacturers }: Props) {
   );
 }
 
-export async function getServerSideProps() {
-  const response = await fetch(`http://localhost:3000/api/manufacturers`);
+export async function getServerSideProps(ctx: GetServerSidePropsContext) {
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/manufacturers`
+  );
+  console.log(ctx.resolvedUrl);
 
   const manufacturers = await response.json();
 

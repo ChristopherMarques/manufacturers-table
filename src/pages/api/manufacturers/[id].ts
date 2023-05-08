@@ -6,7 +6,7 @@ export default async function manufacturerById(
 ) {
   const { id } = req.query;
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/vehicles/getmanufacturerdetails/${id}?format=json`
+    `${process.env.NEXT_PUBLIC_API_URL}/vehicles/getmanufacturerdetails/${id}?format=json`
   );
   const data = await response.json();
   const manufacturer = data.Results[0];

@@ -6,7 +6,7 @@ export default async function manufacturers(
 ) {
   const { page = 1 } = req.query;
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/vehicles/getallmanufacturers?format=json&page=${page}`
+    `${process.env.NEXT_PUBLIC_API_URL}/vehicles/getallmanufacturers?format=json&page=${page}`
   );
 
   const data = await response.json();
